@@ -11,7 +11,7 @@ export default function useSocket(uri, cb) {
         cb && cb(socket);
         setActiveSocket(socket);
         return function cleanup() {
-            socket.off("message.chat1", cb);
+            socket.off("disconnect", cb);
         };
     }, []);
 

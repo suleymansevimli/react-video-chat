@@ -1,3 +1,4 @@
+import React from 'react';
 import Peer from 'peerjs';
 import './App.css';
 import useSocket from "./hooks/useSocket";
@@ -5,7 +6,8 @@ import {useEffect} from "react";
 
 function App() {
 
-    const socket = useSocket(process.env.SOCKET_URL)
+    const socket = useSocket('http://localhost:3005')
+
 
     const ROOM_ID = '12345';
 
@@ -14,8 +16,8 @@ function App() {
 
         const myPeer = new Peer(undefined, {
             host: '/', // must be https url
-            port: process.env.PEER_PORT || 3001, // port number must be 443
-        //  secure: true  // for ` https:// `
+            port: 3001, // port number must be 443
+            //  secure: true  // for ` https:// `
         });
 
         const peers = {}
